@@ -1,7 +1,7 @@
 import AccountProfile from '@/components/form/AccountProfile';
 import { currentUser } from '@clerk/nextjs';
 
-const Onbording = async () => {
+const Onboarding = async () => {
   const user = await currentUser();
   // console.log(user);
   if (!user) return null;
@@ -32,4 +32,4 @@ const Onbording = async () => {
   );
 };
 
-export default Onbording;
+export default Onboarding;
