@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 
-// import { fetchCommunityPosts } from "@/lib/actions/community.actions";
+import { fetchCommunityPosts } from '@/lib/actions/community.actions';
 import { fetchUserPosts } from '@/lib/actions/user.action';
 
 import ThreadCard from '../cards/ThreadCard';
@@ -40,13 +40,12 @@ interface Props {
 
 async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
   let result: Result;
-  result = await fetchUserPosts(accountId);
 
-  // if (accountType === "Community") {
-  //   result = await fetchCommunityPosts(accountId);
-  // } else {
-  //   result = await fetchUserPosts(accountId);
-  // }
+  if (accountType === 'Community') {
+    result = await fetchCommunityPosts(accountId);
+  } else {
+    result = await fetchUserPosts(accountId);
+  }
 
   if (!result) {
     redirect('/');
