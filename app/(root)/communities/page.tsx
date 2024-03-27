@@ -2,7 +2,7 @@ import { currentUser } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 
 import CommunityCard from '@/components/cards/CommunityCard';
-// import Pagination from '@/components/shared/Pagination';
+import Pagination from '@/components/shared/Pagination';
 import Searchbar from '@/components/shared/SearchBar';
 
 import { fetchCommunities } from '@/lib/actions/community.actions';
@@ -53,11 +53,11 @@ async function Page({
         )}
       </section>
 
-      {/* <Pagination
+      <Pagination
         path="communities"
         pageNumber={searchParams?.page ? +searchParams.page : 1}
         isNext={result.isNext}
-      /> */}
+      />
     </>
   );
 }

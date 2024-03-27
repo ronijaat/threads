@@ -2,8 +2,8 @@ import { currentUser } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 
 import UserCard from '@/components/cards/UserCard';
+import Pagination from '@/components/shared/Pagination';
 import Searchbar from '@/components/shared/SearchBar';
-// import Pagination from "@/components/shared/Pagination";
 
 import { fetchUser, fetchUsers } from '@/lib/actions/user.action';
 
@@ -50,11 +50,11 @@ async function Page({
         )}
       </div>
 
-      {/* <Pagination
-        path='search'
+      <Pagination
+        path="search"
         pageNumber={searchParams?.page ? +searchParams.page : 1}
         isNext={result.isNext}
-      /> */}
+      />
     </section>
   );
 }
