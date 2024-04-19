@@ -7,10 +7,9 @@ import { fetchUsers } from '@/lib/actions/user.action';
 
 async function RightSidebar() {
   const user = await currentUser();
-  if (!user) return null;
 
   const similarMinds = await fetchUsers({
-    userId: user.id,
+    userId: user?.id || '',
     pageSize: 4,
   });
 
